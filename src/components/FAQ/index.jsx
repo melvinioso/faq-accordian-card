@@ -4,12 +4,14 @@ import styles from './FAQ.module.css';
 const FAQ = (props) => {
   return (
     <div className={styles.container}>
-      <div className={styles.images}>
+      <div className={styles.boxContainer}>
         <img
           className={styles.box}
           src="/illustration-box-desktop.svg"
           alt="box"
         />
+      </div>
+      <div className={styles.images}>
         <img
           className={styles.pattern}
           src="/bg-pattern-desktop.svg"

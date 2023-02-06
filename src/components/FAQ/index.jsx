@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
+import { useSpring, animated } from 'react-spring';
 import styles from './FAQ.module.css';
 
 const questions = [
@@ -36,8 +37,24 @@ const questions = [
 ];
 
 const Question = ({ id, question, answer, toggle, open }) => {
+  const openAnimation = useSpring({
+    from: { opacity: '0', maxHeight: '50px' },
+    to: { opacity: '1', maxHeight: open ? '120px' : '50px' },
+    config: { duration: '200' },
+  });
+
+  const iconAnimation = useSpring({
+    from: {
+      transform: 'rotate(0deg)',
+    },
+    to: {
+      transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+    },
+    config: { duration: '200' },
+  });
+
   return (
-    <div key={id} className={styles.question}>
+    <animated.div key={id} className={styles.question} style={openAnimation}>
       <div className={styles.questionRow} onClick={() => toggle(id)}>
         <h2
           className={cx(`${styles.questionTitle}`, {
@@ -46,16 +63,15 @@ const Question = ({ id, question, answer, toggle, open }) => {
         >
           {question}
         </h2>
-        <img
-          className={cx(`${styles.questionIcon}`, {
-            [styles.questionIconOpen]: open,
-          })}
+        <animated.img
+          style={iconAnimation}
+          className={styles.questionIcon}
           src="/icon-arrow-down.svg"
           alt="arrow"
         />
       </div>
-      {open && <p className={styles.questionAnswer}>{answer}</p>}
-    </div>
+      <p className={styles.questionAnswer}>{answer}</p>
+    </animated.div>
   );
 };
 

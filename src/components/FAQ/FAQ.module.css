@@ -65,6 +65,7 @@
 
 .question {
   border-bottom: 1px solid #e8e8ea;
+  overflow: hidden;
 }
 
 .questionRow {
@@ -100,10 +101,6 @@
 .questionIcon {
   width: 10px;
   height: 7px;
-}
-
-.questionIconOpen {
-  transform: rotate(180deg);
 }
 
 .questionAnswer {

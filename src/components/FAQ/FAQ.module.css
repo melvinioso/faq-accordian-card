@@ -1,7 +1,57 @@
 .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
   width: 920px;
   height: 509px;
   background: #ffffff;
   box-shadow: 0px 50px 50px -20px rgba(53, 18, 122, 0.497159);
   border-radius: 23px;
+}
+
+.images {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.box {
+  width: 191px;
+  height: 184px;
+  position: fixed;
+  top: 370px;
+  left: -16px;
+  z-index: 100;
+}
+
+.pattern {
+  width: 964px;
+  height: 944px;
+  position: absolute;
+  top: -290px;
+  left: -580px;
+}
+
+.illustration {
+  width: 472px;
+  height: 359px;
+  position: absolute;
+  top: 80px;
+  left: -90px;
+}
+
+.faq {
+  width: 50%;
+  height: 100%;
+  text-align: left;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  color: #1e1f36;
+  margin-top: 65px;
 }
